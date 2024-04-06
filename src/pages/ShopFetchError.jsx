@@ -1,6 +1,6 @@
 import { useRouteError, Link } from "react-router-dom";
 
-export default function ShoptFetchError() {
+export default function ShopFetchError() {
   const error = useRouteError();
 
   return (
