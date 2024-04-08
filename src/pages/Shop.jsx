@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import cartImg from "./components/cart-img.svg";
 
-export default function Shop({ cartArr, setCartArr }) {
+import "./styles/shopStyle.css";
+
+export default function Shop({
+  cartArr,
+  setCartArr,
+  handleAddToCartClick,
+  handleRemoveFromCartClick,
+}) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const items = useLoaderData();
@@ -27,22 +35,29 @@ export default function Shop({ cartArr, setCartArr }) {
   if (loading) return <p className="loading-data">Loading...</p>;
   if (error) return <p className="error-data">Error: {error.message}</p>;
 
-  const handleAddToCartClick = (item) => {
-    setCartArr((prevCartArr) => [...prevCartArr, item]);
-  };
-
   return (
     <div>
       {items.map((item) => {
+        const cartItem = cartArr.find((cartItem) => cartItem.id === item.id);
+        const cartQuantity = cartItem ? cartItem.quantity : 0;
         return (
           <div className="shopItem" key={item.id}>
             <p>{item.title}</p>
-            <button
-              type="button"
-              onClick={() => handleAddToCartClick({ item })}
-            >
-              Add to Cart
-            </button>
+            <img src={item.image} width="100px"></img>
+
+            <div className="quantity-buttons">
+              <button type="button" onClick={() => handleAddToCartClick(item)}>
+                +
+              </button>
+              <img src={cartImg} alt="cartPic" width="35px" />
+              <p>{cartQuantity}</p>
+              <button
+                type="button"
+                onClick={() => handleRemoveFromCartClick(item)}
+              >
+                -
+              </button>
+            </div>
           </div>
         );
       })}
@@ -57,5 +72,10 @@ export const itemLoader = async () => {
     throw Error("Could not fetch shop items");
   }
 
-  return res.json();
+  const data = await res.json();
+
+  // Modify each item to include a quantity field initialized to 0
+  const modifiedData = data.map((item) => ({ ...item, quantity: 0 }));
+
+  return modifiedData;
 };
