@@ -1,0 +1,21 @@
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-content h1{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.home-content p{
+    margin: 0 60px;
+}
+
+
+
+.home-content img{
+    margin-top: 40px;
+    max-width: 1200px;
+}

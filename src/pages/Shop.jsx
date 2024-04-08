@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import cartImg from "./components/cart-img.svg";
+import minusImg from "./components/minus.svg";
+import plusImg from "./components/plus.svg";
 
 import "./styles/shopStyle.css";
 
@@ -36,7 +38,7 @@ export default function Shop({
   if (error) return <p className="error-data">Error: {error.message}</p>;
 
   return (
-    <div>
+    <div className="allItems">
       {items.map((item) => {
         const cartItem = cartArr.find((cartItem) => cartItem.id === item.id);
         const cartQuantity = cartItem ? cartItem.quantity : 0;
@@ -47,7 +49,7 @@ export default function Shop({
 
             <div className="quantity-buttons">
               <button type="button" onClick={() => handleAddToCartClick(item)}>
-                +
+                <img src={plusImg}></img>
               </button>
               <img src={cartImg} alt="cartPic" width="35px" />
               <p>{cartQuantity}</p>
@@ -55,7 +57,7 @@ export default function Shop({
                 type="button"
                 onClick={() => handleRemoveFromCartClick(item)}
               >
-                -
+                <img src={minusImg}></img>
               </button>
             </div>
           </div>

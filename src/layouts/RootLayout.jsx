@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import "./RootLayoutStyle.css";
+import storefront from "../pages/components/storefront.svg";
 
 export default function RootLayout({
   cartArr,
@@ -13,10 +14,20 @@ export default function RootLayout({
     <div className="root-layout">
       <header>
         <nav>
-          <h1>SkyDeal</h1>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="shop">Shop</NavLink>
-          <NavLink to="cart">Cart {itemCount}</NavLink>
+          <div className="logo">
+            <h1>SkyDeal</h1>
+            <img src={storefront} alt="storefront" />
+          </div>
+          <div className="links">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="shop">Shop</NavLink>
+            <NavLink to="cart">
+              <p className="cartQuantity">
+                Cart
+                <span>{itemCount}</span>
+              </p>
+            </NavLink>
+          </div>
         </nav>
       </header>
 

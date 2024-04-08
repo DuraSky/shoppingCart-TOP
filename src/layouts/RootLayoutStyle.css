@@ -1,12 +1,51 @@
-header nav{
+header nav {
     display: flex;
-    gap: 16px;
-    justify-content: end;
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 10px;
+    align-items: center;
+
+    font-size: 1.2rem;
+
 }
 
-header nav h1 {
+header nav .links {
+    display: flex;
+
+}
+
+header nav .links a{
+    text-decoration: none;
+    color: inherit;
+    padding: 15px;
+}
+
+.active{
+    background: #8f8787;
+    border-radius: 15px;
+
+}
+
+header nav .links a:hover{
+    background: #d7d6d6;
+    border-radius: 15px;
+}
+
+header nav .logo {
     margin-right: auto;
-    border-bottom: 3px solid black
+    border-bottom: 3px solid #a6e4e7;
+
+    display: flex;
+    gap: 10px;
+  }
+
+
+  .cartQuantity{
+    display: flex;
+    gap: 2px;
+  }
+
+  .cartQuantity span{
+    color: #a6e4e7;
+    font-weight: bolder;
   }

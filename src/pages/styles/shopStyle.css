@@ -1,4 +1,53 @@
-.shopItem{
-    border: 1px solid;
-    max-width: 200px;
+.allItems{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px; 
+
+    margin: 0 60px;
 }
+
+.shopItem{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shopItem img{
+    
+}
+
+.shopItem:hover{
+    background: #d7d6d6;
+}
+
+.shopItem p{
+    font-weight: bolder;
+}
+
+.quantity-buttons{
+    padding-top: 10px;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+
+    
+
+}
+
+.quantity-buttons button{
+    appearance: none; /* Remove default appearance */
+    border: none; /* Remove default border */
+    background-color: transparent; /* Set background to transparent */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    font: inherit; /* Inherit font styles from parent */
+    cursor: pointer; /* Set cursor to pointer */
+    /* Add any additional styling as needed */
+}
+

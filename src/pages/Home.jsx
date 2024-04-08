@@ -1,3 +1,6 @@
+import "./styles/homeStyle.css";
+import shopImg from "./components/shop-img.jpg";
+
 export default function Home() {
   return (
     <div className="home-content">
@@ -32,6 +35,8 @@ export default function Home() {
         non enim vestibulum interdum. Nullam sapien sem, ornare ac, nonummy non,
         lobortis a enim.
       </p>
+
+      <img src={shopImg} alt="storefront image"></img>
     </div>
   );
 }
